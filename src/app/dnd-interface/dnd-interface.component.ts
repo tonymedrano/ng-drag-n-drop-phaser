@@ -16,7 +16,7 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import { MainScene } from './dnd-inetrface-scene';
+import { Boot, SceneA } from './dnd-inetrface-scene';
 
 @Component({
   selector: 'dnd-interface',
@@ -31,17 +31,22 @@ export class DndInterfaceComponent implements OnInit {
       type: Phaser.AUTO,
       height: 600,
       width: 800,
-      scene: [ MainScene ],
+      scene: [ Boot, SceneA ],
       parent: 'dndContainer',
-      physics: {
+      backgroundColor: '#2d2d2d',
+   /*    physics: {
         default: 'arcade',
         arcade: {
           gravity: { y: 100 }
         }
-      }
+      } */
     };
   }
   ngOnInit() {
+    
+  }
+
+  ngAfterViewInit(){
     this.phaserGame = new Phaser.Game(this.config);
   }
 }
